@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Panel | APSIT Alumni</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  
+  <!-- overlayScrollbars -->   
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../assets/css/adminlte.css">
+  
+  <!-- Jquery with fallback -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">window.jQuery || document.write('<script src="../assets/vendor/jquery.min.js"><\/script>');</script>
+  </head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                
+                <li class="nav-item d-none d-inline-block">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+          </a>
+        </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo main-->
+            <a href="/" class="brand-link">
+                <img src="../assets/img/logo.png" alt="APSIT" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">APSIT Alumni Portal</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image my-1">
+                      <i class="fas fa-user-circle fa-2x text-light"></i>
+                    </div>
+                    <div class="info my-1">
+                        <a href="#" class="d-block"> <%= loggedInUser.username %> </a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                  <li class="nav-item">
+                    <a href="/admin" class="nav-link active">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                        Dashboard
+                      </p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-newspaper"></i>
+                      <p>
+                        News Section
+                        <i class="fas fa-angle-left right"></i>
+                      
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="/admin/news" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>News</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/admin/addNews" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Add News</p>
+                        </a>
+                      </li>
+                    
+                    </ul>
+                  </li>
+
+                  <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-calendar-day"></i>
+                      <p>
+                        Events Section
+                        <i class="fas fa-angle-left right"></i>
+                      
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="/admin/events" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Events</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/admin/addEvent" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Add Events</p>
+                        </a>
+                      </li>
+                    
+                    </ul>
+                  </li>
+
+                  <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-quote-left"></i>
+                      <p>
+                        Testimonials Section
+                        <i class="fas fa-angle-left right"></i>
+                  
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="/admin/testimonials" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Testimonials</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/admin/addTestimonials" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Add Testimonials</p>
+                        </a>
+                      </li>
+                  
+                    </ul>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="/newsletter" class="nav-link">
+                      <i class="nav-icon fas fa-mail-bulk"></i>
+                      <p>
+                        Newsletter Subscribers
+                      </p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="/admin/alumnilist" class="nav-link">
+                      <i class="nav-icon fas fa-user-tie"></i>
+                      <p>
+                        Alumni
+                      
+                      </p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="/admin/studentlist" class="nav-link">
+                      <i class="nav-icon fas fa-user"></i>
+                      <p>
+                      Students
+                      
+                      </p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="/admin/adminlist" class="nav-link">
+                      <i class="nav-icon fas fa-user-cog"></i>
+                      <p>
+                        Admins
+          
+                      </p>
+                    </a>
+                  </li>
+
+            </nav>
+    <!-- /.sidebar-menu -->
+        </div>
+    <!-- /.sidebar -->
+        </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"  style="margin-top: 57px;" style="margin-top: 57px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+    <div class="container-fluid">
+    <div class="row mb-2">
+    <div class="col-sm-6">
+      <h1 class="m-0 text-dark">Dashboard</h1>
+    </div><!-- /.col -->
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </div><!-- /.col -->
+    </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+
+    <!-- start flash message -->
+    <div id="flashAlert" class="container-fluid">
+    <div class="row">
+    <div class="col-lg-12 col-12">
+      <% if(successMessage && successMessage.length>0 ){ %>
+        <div class="alert alert-success text-center" role="alert">
+          <%= successMessage %>
+        </div>
+      <%}%>
+      <% if(errorMessage && errorMessage.length>0 ){ %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= errorMessage %>
+        </div>
+      <% } %>
+    </div>
+    </div>
+    </div>
+    <!-- end flash message -->
+
+
+    <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+
+    <!-- ./col -->
+    <div class="col-lg-6 col-12">
+      <!-- small box -->
+      <div class="small-box bg-warning">
+
+        <div class="inner">
+          <h3><%= alumniCount %></h3>
+          <h3>Alumni Count</h3>
+        </div>
+
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="/admin/alumnilist" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+
+    <!-- ./col -->
+    <div class="col-lg-6 col-12">
+      <!-- small box -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3> <%= studentCount %> </h3>
+
+          <h3>Students Count</h3>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="/admin/studentlist" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <!-- ./col -->
+    </div>
+    <!-- /.row -->
+
+
+    <!-- Main row -->
+    <div class="row">
+    <!-- Left col -->
+    <section class="col-lg-12"><br>
+
+    <div>
+    <h1 class="m-0 text-dark text-center">Edit Home Page</h1><br>
+    </div>
+
+    <div>
+    <form action="/admin/externalData" id="mainForm" method="POST">
+        <div class="row">
+
+            <div class="col-12">
+              <div class="form-group">
+                <label for="">Youtube Video URL</label>
+                <input type="text" name="youtubeURL" value="<%= miscData.youtubeURL %>" class="form-control" required="required">
+              </div>
+            </div>
+
+          </div>
+
+        <div class="row">
+
+            <div class="col-6 col-lg-3">
+              <div class="form-group">
+                <label for="">Student Count</label>
+                <input type="number" min="0" max="" name="students" value="<%= miscData.students %>" class="form-control"
+                  required="required">
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="form-group">
+                  <label for="">Student Progress (%)</label>
+                  <input type="number" min="0" max="100" name="studentsProgress" value="<%= miscData.studentsProgress %>"
+                    class="form-control" required="required">
+              </div>
+            </div>
+
+          
+
+            <div class="col-6 col-lg-3">
+              <div class="form-group">
+                <label for="">Alumni Count</label>
+                <input type="number" min="0" max="" name="alumni" value="<%= miscData.alumni %>" class="form-control"
+                  required="required">
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="form-group">
+                  <label for="">Alumni Progress (%)</label>
+                  <input type="number" min="0" max="100" name="alumniProgress" value="<%= miscData.alumniProgress %>"
+                    class="form-control" required="required">
+              </div>
+            </div>
+
+        </div>
+
+          <!-- /.card-body -->
+
+        <div>
+          <button type="submit" form="mainForm" class="btn btn-block btn-primary btn-lg">
+            <i id="submit-btn-icon" class="fas fa-upload"></i> 
+            <span id="spinner" style="vertical-align: middle;" role="status" aria-hidden="true"></span>
+            Update
+          </button><br>
+        </div>
+    </form>
+
+    </div><hr>
+
+    <div class="col-lg-12 mb-3"><br>
+
+      <div>
+      <h1 class="m-0 text-dark text-center">Change Recruiters</h1><br>
+      </div>
+
+      <div class="small text-center">
+        <i class="fas fa-exclamation-circle"></i>
+        Strictly PNG | If changes are not reflected, then clear cache & reload or see home page in incognito window. 
+      </div>
+  
+      <div class="row">
+
+        <% for(let c=1; c<=12; c++) { %>
+          <div class="col-lg-4 col-md-4 col-sm-12 recruiter-container">
+  
+            <div class="font-weight-bold text-dark text-center">Recruiter <%= c %></div>
+  
+            <div class="d-flex justify-content-center">
+              <img data-src="../assets/img/clients/client-<%= c %>.png" width="90" class="lazyload justify-content-center" alt="Not found">
+            </div>
+    
+            <div class="form-row">
+              <div class="custom-file col">
+                <form action="/admin/recruiters" id="recruiter-<%= c %>" method="POST" enctype="multipart/form-data">
+                  <label class="custom-file-label">Choose image...</label>
+                  <input type="file" accept=".jpg,.jpeg,.png" name="client-<%= c %>" class="custom-file-input" required="required">
+                </form>
+              </div>
+              <div class="col-md-auto col-lg-auto col-sm-auto col-xs-auto text-center">
+                <button type="submit" form="recruiter-<%= c %>" class="btn btn-primary"><i class="fas fa-upload"></i> Update</button>
+              </div>
+            </div>
+            
+          </div>
+          
+        <% } %>
+
+      
+      </div>
+  
+    </div>
+
+    </section>
+    
+    <!-- /.Left col -->
+    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+    <!-- right col -->
+    </div>
+    <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+<%- include ('../partials/adminFooter'); -%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

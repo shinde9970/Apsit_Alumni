@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Contribute | APSIT Alumni</title>
+  
+  
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" />
+  <link href="assets/vendor/venobox.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Jquery with fallback -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">window.jQuery || document.write('<script src="assets/vendor/jquery.min.js"><\/script>');</script>
+
+</head>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="align-items-center mr-auto"><a href="#"><img id="main_logo" src="assets/img/logo.png" alt="APSIT" height="100px"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/events">Events</a></li>
+          <li class="active" ><a href="#contribute">Contribute</a></li>
+          <li><a href="/communicate">Communicate</a></li>
+      
+          <% if(loggedInUser && loggedInUser.role=="admin"){ %>
+            <li><a href="/admin">Admin Panel</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% } else if (loggedInUser) { %>
+              <li class="drop-down"><a href="#"><%= loggedInUser.firstName %> <i class="fas fa-angle-down"></i></a>
+                  <ul>
+                      <li><a href="/profile"><i class="fas fa-user pr-1"></i>Profile</a></li>
+                      <li><a href="/chats"><i class="fas fa-comments pr-1"></i>Chats</a></li>
+                      <li><a href="/logout"><i class="fas fa-sign-out-alt pr-1"></i>Logout</a></li>
+                  </ul>
+              </li>
+          <% } else { %>
+            <li><a href="/signup"><i class="fas fa-user pr-1"></i>Sign UP</a></li>
+            <li><a href="/login"><i class="fas fa-sign-in-alt pr-1"></i>Login</a></li>
+          <% } %>
+        </ul>
+      </nav><!-- nav-menu -->
+
+     
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs"><br><br><br>
+      <div class="container">
+
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Contribute</li>
+        </ol>
+        <h2>Contribute</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="contribute" class="inner-page">
+      <div class="container">
+          
+          <div class="section-title">
+            <h2>ALUMNI CAN CONTRIBUTE</h2>
+            </div>
+          <div>
+            The involvement of alumni in supporting and providing contributions voluntarily to APSIT is important for maintaining and expanding a APSIT’s development. By establishing channels that can facilitate closer ties between the alumni, students and Institute, it can provide crucial benefits in enriching the student’s experience while being at the Institute.Every alumni has experienced being a student to becoming a unique and different graduate, hence there is potential for all alumni to contribute to the APSIT in different ways and scale..
+          </div>
+          <br><br>
+          <div class="section-title">
+            <h2>Ways to Give</h2>
+            </div>
+          <h4>Career mentor</h4><hr>
+          <div>
+            Competition in entering the work force is becoming more intensive as a result of a higher number of graduates compared with a limited number of job opportunities. Job availability is more critical in certain sectors. In the final year of their studies, APSIT students must identify seriously their career prospects. This is the right time for alumni to support the APSIT students by mentoring them on their career opportunities in the industry and opening channels for the students for acceptance, either in undergoing practical learning or work experience in the institutions where the alumni reside in. Alumni can be a reference for the faculty concerned in meeting the needs of students and graduates in obtaining work in selected fields.
+          </div>
+          <br><br>
+
+          <h4>Role model and inspiration</h4><hr>
+          <div>Alumni is an effective role model and can be easily accepted by students. With the return of the alumni to support APSIT, they bring with them credibility and justification as part of a successful Institute, having same environment and encountering similar challenges faced by the students. Experiences that are shared by the alumni with students whether in time management, financial management, development of self-discipline and character, or in career management can be more easily accepted as guidance and inspiration by students..</div>
+          <br><br>
+
+          <h4>Any other areas</h4><hr>
+          <div>
+            Apart from the above-mentioned support/assistance, if the alumni wish to take up any other initiatives in terms of contributing to their alma mater, they will always be encouraged.
+          </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+<footer id="footer">
+
+  <div class="footer-top">
+      <div class="container">
+          <div class="row justify-content-around">
+
+              <div class="col-lg-3 col-md-6 footer-contact">
+                  <h3>A. P. Shah Institute Of Technology</h3>
+                  <p>
+                      Survey No. 12, 13,<br>
+                      Opp. Hypercity Mall, Kasarvadavali,<br>
+                      Ghodbunder Road, Thane West,<br>
+                      Thane, Maharashtra 400615<br><br>
+                      <strong>Phone:</strong> +91 9022147199<br>
+                      <strong>Email:</strong><a href="mailto:alumni@apsit.edu.in"> alumni@apsit.edu.in</a><br>
+                  </p>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                  <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a href="/">Home</a></li>
+                  <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a href="/#about">About us</a></li>
+                  <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a >Terms of service</a></li>
+                  <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a >Privacy policy</a></li>
+                </ul>
+              </div>
+      
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Networks</h4>
+                <p>Stay connected to get latest updates.</p>
+                <div class="social-links mt-3">
+                  <a href="#" ><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" ><i class="fab fa-instagram"></i></a>
+                  <a href="#" ><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" ><i class="fab fa-twitter"></i></a>
+                  <a href="#" ><i class="fab fa-youtube"></i></a>
+                  
+                </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="container footer-bottom clearfix">
+      <div class="copyright">
+          &copy; Copyright 2020<strong><span> A. P. Shah Institute Of Technology</span></strong>. All Rights
+          Reserved
+      </div>
+      <div class="credits">
+
+          Designed with ❤ by <a href="">Rajan Khade</a> and <a href="">Chinmay
+              Dharap</a>.
+      </div>
+  </div>
+</footer>
+<!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/contact-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/jquery.easing.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/venobox.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<%- include ('../partials/adminHeader'); -%>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                  News Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/news" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>News</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addNews" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add News</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+    
+    
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-calendar-day"></i>
+                <p>
+                  Events Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/events" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Events</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addEvent" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Events</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-quote-left"></i>
+                <p>
+                  Testimonials Section
+                  <i class="fas fa-angle-left right"></i>
+            
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/testimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Testimonials</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addTestimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Testimonials</p>
+                  </a>
+                </li>
+            
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="/newsletter" class="nav-link">
+                <i class="nav-icon fas fa-mail-bulk"></i>
+                <p>
+                  Newsletter Subscribers
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/alumnilist" class="nav-link active">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Alumni
+    
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/studentlist" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Students
+    
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/admin/adminlist" class="nav-link">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>
+                  Admins
+    
+                </p>
+              </a>
+            </li>
+    
+    
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"  style="margin-top: 57px;">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item active">Alumni</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- start flash message -->
+        <div id="flashAlert" class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-12">
+              <% if(successMessage && successMessage.length>0 ){ %>
+                <div class="alert alert-success text-center" role="alert">
+                  <%= successMessage %>
+                </div>
+                <%}%>
+                <% if(errorMessage && errorMessage.length>0 ){ %>
+                <div class="alert alert-danger text-center" role="alert">
+                  <%= errorMessage %>
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+        <!-- end flash message -->
+
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+
+            <!-- ./col -->
+
+            <!-- ./col -->
+            <div class="col-lg-12 col-12">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3 id="fill-count"> <%= countAlumni %> </h3>
+
+                  <h3>Alumni Count</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+
+              </div>
+            </div>
+            <!-- ./col -->
+
+
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12"><br>
+
+              <div>
+                  <h1 class="m-0 text-dark">Alumni List</h1>
+                <br>
+              </div>
+
+              <div class="card">
+
+
+                <div class="card-body table-responsive p-0 my-table-height">
+                  <table class="table table-head-fixed text-nowrap sortable-table indexed">
+                    <thead>
+                      <tr class="sorter-header">
+                        <!-- <th>ID</th> -->
+                        <!-- <th>Index</th> -->
+                        <th id="simulate_click" class="keep-whitespace" style="background-position-x: 10px;">  Username</th>
+                        <th class="keep-whitespace text-center">  First Name</th>
+                        <th class="keep-whitespace text-center">  Last Name</th>
+                        <th class="no-sort text-center">View Profile</th>
+                        <th class="no-sort text-center">Delete Profile</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for(let i=0; i<countAlumni; i++) { %>
+                        <tr>
+                          <!-- <td> <%# i+1 %> </td> -->
+                          <td><%= allAlumni[i].username %></td>
+                          <td class="text-center"><%= allAlumni[i].firstName %></td>
+                          <td class="text-center"><%= allAlumni[i].lastName %></td>
+                          <td>
+                            <a href="/profile/<%= allAlumni[i]._id %>" class="btn btn-block btn-primary btn-sm btn-fix-size">View</a>
+                          </td>
+                          <td>
+                            <button data-userid="<%= allAlumni[i]._id %>" data-toggle="modal" data-target="#user-del-modal" class="btn btn-block btn-danger btn-sm btn-fix-size btn-user-delete">Delete</button>
+                          </td>
+                        </tr>
+                      <% } %>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- /.card-body -->
+
+              </div>
+
+              <!-- confirmation modal -->
+              <div id="user-del-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Delete Profile</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>After deleting the profile, there is no way to recover it. Do you still want to continue?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button id="btn-modal-delete" type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- notice modal -->
+              <div id="user-notice-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Notice</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>No user found.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary mx-auto" data-dismiss="modal">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- failure modal -->
+              <div id="user-failure-modal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Warning</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>User profile deletion failed!</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary mx-auto" data-dismiss="modal">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+            <!-- /.Left col -->
+
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <%- include ('../partials/adminFooter'); -%>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.sortable-table').tableSorter();
+        document.getElementById('simulate_click').click();
+
+        /* trigger modal */
+        $('.btn-user-delete').on("click", function() {
+          const $this = $(this);
+          const userid = $this.data("userid");
+
+          $("#btn-modal-delete").data("userid", userid);
+
+          $this.html("Delete");
+        });
+
+        /* confirm deletion */
+        $('#btn-modal-delete').on("click", function () {
+          const $this = $(this);
+          const userid = $this.data("userid");
+
+          
+          if(userid) {
+            $.ajax({
+              url: "/account/delete",
+              method: "POST",
+              data: { userid: userid },
+
+            }).done(function (response) {
+              if(response == "Done") {
+                $("button[data-userid=" + userid + "]").closest("tr").hide("600");
+
+                /* update count */
+                $("#fill-count").text(Number($("#fill-count").text()) - 1);
+              } else {
+                $('#user-failure-modal').modal('show');
+              }
+
+              $('#user-del-modal').modal("hide");
+            }).fail(function() {
+              $('#user-del-modal').modal("hide");
+              $('#user-failure-modal').modal('show');
+            });
+
+          } else {
+            $('#user-del-modal').modal("hide");
+            $('#user-notice-modal').modal('show');
+          }
+        });
+
+      });
+    </script>
+</body>
+
+</html>

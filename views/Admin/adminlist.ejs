@@ -1,0 +1,310 @@
+<%- include ('../partials/adminHeader'); -%>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                  News Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/news" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>News</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addNews" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add News</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+    
+    
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-calendar-day"></i>
+                <p>
+                  Events Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/events" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Events</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addEvent" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Events</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-quote-left"></i>
+                <p>
+                  Testimonials Section
+                  <i class="fas fa-angle-left right"></i>
+            
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/testimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Testimonials</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addTestimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Testimonials</p>
+                  </a>
+                </li>
+            
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="/newsletter" class="nav-link">
+                <i class="nav-icon fas fa-mail-bulk"></i>
+                <p>
+                  Newsletter Subscribers
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/alumnilist" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Alumni
+    
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/studentlist" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Students
+    
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/admin/adminlist" class="nav-link active">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>
+                  Admins
+
+                </p>
+              </a>
+            </li>
+    
+    
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"  style="margin-top: 57px;">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item active">Admins</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- start flash message -->
+        <div id="flashAlert" class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-12">
+              <% if(successMessage && successMessage.length>0 ){ %>
+                <div class="alert alert-success text-center" role="alert">
+                  <%= successMessage %>
+                </div>
+                <%}%>
+                <% if(errorMessage && errorMessage.length>0 ){ %>
+                <div class="alert alert-danger text-center" role="alert">
+                  <%= errorMessage %>
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+        <!-- end flash message -->
+
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+
+            <!-- ./col -->
+
+            <!-- ./col -->
+            <div class="col-lg-12 col-12">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3> <%= countAdmins %> </h3>
+
+                  <h3>Admins Count</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+
+              </div>
+            </div>
+            <!-- ./col -->
+
+
+            <!-- ./col -->
+          </div>
+
+
+          <div class="col-lg-12"><br>
+
+            <div>
+            <h1 class="m-0 text-dark text-center">Add New Admin</h1><br>
+            </div>
+        
+            <div>
+            <form action="/admin/signUp" id="mainForm" method="POST">
+              <div class="row">
+        
+                <div class="col-lg-6 col-12">
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" required="required" placeholder="Username">
+                  </div>
+                </div>
+        
+                <div class="col-lg-6 col-12">
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" required="required" placeholder="Password">
+                  </div>
+                </div>
+        
+              </div>
+        
+              <!-- /.card-body -->
+        
+              <div>
+                <button type="submit" class="btn btn-block btn-primary btn-lg">
+                  <i id="submit-btn-icon" class="fas fa-plus"></i>
+                  <span id="spinner" style="vertical-align: middle;" role="status" aria-hidden="true"></span>
+                  Add Admin
+                </button><br>
+              </div>
+            </form>
+        
+            </div>
+        
+          </div>
+
+          <hr>
+
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12"><br>
+
+              <div>
+                
+                  <h1 class="m-0 text-dark text-center">Admins List</h1>
+                <br>
+              </div>
+
+              <div class="card">
+
+
+                <div class="card-body table-responsive p-0 my-table-height">
+                  <table class="table table-head-fixed text-nowrap sortable-table indexed">
+                    <thead>
+                      <tr class="sorter-header">
+                        <!-- <th>ID</th> -->
+                        <!-- <th>Index</th> -->
+                        <th id="simulate_click" class="keep-whitespace" style="background-position-x: 10px;">  Username</th>
+                        <th class="keep-whitespace text-center">  Created By</th>
+                        <th class="no-sort text-center">Delete Admin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for(let i=0; i<countAdmins; i++) { %>
+                        <tr>
+                          <!-- <td> <%# i+1 %> </td> -->
+                          <td><%= allAdmins[i].username %></td>
+                          <td class="text-center"><%= allAdmins[i].createdBy %></td>
+                          <td>
+                            <form action="/admin/delete/<%= allAdmins[i]._id %>?_method=DELETE" method="POST">
+                              <button type="submit" class="btn btn-block btn-danger btn-sm btn-fix-size btn-action-spinner">Delete</button>
+                            </form>
+                          </td>
+                        </tr>
+                      <% } %>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- /.card-body -->
+
+              </div>
+
+            </section>
+            <!-- /.Left col -->
+
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <%- include ('../partials/adminFooter'); -%>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.sortable-table').tableSorter();
+        document.getElementById('simulate_click').click();
+      });
+    </script>
+</body>
+
+</html>

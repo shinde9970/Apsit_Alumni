@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>View Profile | APSIT Alumni</title>
+
+    <!-- Favicons -->
+    <link href="../../assets/img/favicon.png" rel="icon">
+    <link href="../../assets/img/logo.png" rel="apple-touch-icon">
+
+    
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Template Main CSS File -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+        #profile-img {
+            object-fit: cover;
+            /* width:200px;
+            height:200px; */
+            border-radius: 50%;
+            /* box-shadow: 1px 1px 10px #000; */
+            margin: 0 25px;
+        }
+
+        #profile-img-container {
+            width: 280px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: rgba(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        #profile-img-container:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: rgb(105, 105, 105);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        input[type=checkbox] {
+            transform: scale(1.3);
+        }
+
+        .custom-show {
+            height: auto;
+            min-height: 38px;
+            max-height: 6em; 
+            overflow-y: auto;
+            /* overflow-x: hidden; */
+        }
+        
+        .custom-show-- {
+            /* height: auto;
+            min- */
+            height: 38px;
+            /* max-height: 6em;  */
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            /* word-break: break-word; */
+        }
+
+        .custom-show-skills {
+            height: auto;
+            min-height: 38px;
+            max-height: 7em; 
+            overflow: auto;
+            padding-top: .100rem;
+            padding-left: .100rem;
+            padding-right: .100rem;
+        }
+
+        .skill-item {
+            padding: 0px 2px;
+            background-color: #e4e4e4;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 5px;
+            position: relative;
+            max-width: fit-content;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+            white-space: nowrap;
+        }
+    </style>
+
+    <!-- Jquery with fallback -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">window.jQuery || document.write('<script src="../../assets/vendor/jquery.min.js"><\/script>');</script>
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="align-items-center mr-auto"><a href="#"><img id="main_logo" src="../assets/img/logo.png" alt="APSIT" height="100px"></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo mr-auto"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li ><a href="/news">News</a></li>
+                    <li ><a href="/events">Events</a></li>
+                    <li><a href="/contribute">Contribute</a></li>
+                    <li class="active"><a href="/communicate">Communicate</a></li>
+
+                    <% if(loggedInUser.role=="admin"){ %>
+                        <li><a href="/admin">Admin Panel</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } else { %>
+                        <li class="drop-down"><a href="#"><%= loggedInUser.firstName %> <i class="fas fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="/profile"><i class="fas fa-user pr-1"></i>Profile</a></li>
+                                <li><a href="/chats"><i class="fas fa-comments pr-1"></i>Chats</a></li>
+                                <li><a href="/logout"><i class="fas fa-sign-out-alt pr-1"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs"><br><br><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li>View Profile</li>
+                        </ol>
+                        <h2>Profile</h2>
+                    </div>
+
+                    
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+        
+        <section id="profile" class="services section-bg">    
+
+            <div class="container">
+        
+                <!-- profile photo -->
+                <!-- many changes requird here -->
+                <div class="section-title">
+                    <h2>Profile</h2>
+                </div>
+                    
+                    <div id="profile-img-container">
+                            <% if( profileImage ) { %>
+                                <img src="<%=profileImage%>" id="profile-img" height="200" width="200">
+                            <% } else { %>
+                                <div class="text-center">
+                                    <i class="fas fa-user" style="font-size: 200px;"></i>
+                                </div>
+                            <% } %>
+                        <div class="profile-name mb-1"><%= firstName  %> <%= lastName  %></div>
+                        <div><a href="/chats/<%= _id %> " class="btn btn-block btn-primary"><i class="fas fa-paper-plane pr-1"></i>Message</a></div>
+                    </div>
+                
+                
+                <div class="mt-5">
+                    <div class="form-group">
+                        <div class="text-center pb-1"><strong>Education At Our Institute</strong> </div>
+                        <div class="row text-center">
+                            <div class="col-6 col-md-4">
+                                <!-- Year Of Adminssion -->
+                                <label>Adminssion</label>
+                                <div class="form-control"><%= profile.yearOfAdmission  %></div>
+                            
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <!-- Year Of Graduation -->
+                                <label>Graduation</label>
+                                <div class="form-control"><%= profile.yearOfGraduation  %></div>
+                            </div>
+
+                            <div class="col-6 col-md-4 mx-auto">
+                                <!-- branch -->
+                                <label>Branch</label>
+                                <div class="form-control"><%= profile.branch  %></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            
+            </div>
+        </section>
+            
+        <section id="profile" class="services">
+            <div class="section-title">
+                <h2>Personal Info</h2>
+            </div>
+
+            <div class="container">
+                <!-- other data -->
+                    
+                    <!-- bio -->
+                    <div class="form-group">
+                        <label><strong>Bio</strong></label>
+                        <div class="form-control" style="height: auto; min-height: 38px; max-height: 15em; overflow: auto;"><%= profile.bio %></div>
+                    </div>
+
+                    <div class="form-group row">
+                        <!-- gender -->
+                        <div class="col-6">
+                            <label><strong>Gender</strong></label><br>
+                            <div class="form-control text-capitalize"><%= profile.gender  %></div>
+                        </div>
+
+                        <!-- dob -->
+                        <div class="col-6">
+                            <label><strong>Date Of Birth</strong></label>
+                            <div id="dob" class="form-control"><%= profile.dob  %></div>
+                        </div>
+                    </div>
+                    
+                    <hr><br>
+                    <div class="section-title">
+                        <h2>Contact Info</h2>
+                    </div>
+                    
+                    <!-- home address -->
+                    <div class="form-group">
+                        <div><strong>Home Address</strong> </div>
+                        <div class="form-row">
+                            <div class="col-12 form-group">
+                                <div class="form-control custom-show"><%= profile.address.homeAddress.addressLine1 %></div>
+                            </div>
+                            
+                            <div class="col-6 form-group">
+                                <div class="form-control custom-show--"><%= profile.address.homeAddress.country %></div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="form-control"><%= profile.address.homeAddress.zipcode %></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <%if(userType && userType=="alumni"){%>
+                    <!-- business address -->
+                    <div class="form-group">
+                        <div><strong>Business Address</strong> </div>
+                        
+                        <div class="form-row">
+
+                            <div class="col-12 form-group">
+                                <div class="form-control custom-show"><%= profile.address.businessAddress.addressLine1 %></div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="form-control custom-show--"><%= profile.address.businessAddress.country %></div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="form-control"><%= profile.address.businessAddress.zipcode %></div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+
+                    <div class="row">
+                        <!-- mobile -->
+                        <div class="col-md-6 pb-4">
+                            <label><strong>Mobile Number</strong></label>
+                            <div class="form-control"><%= profile.contact.mobile %></div>
+                        </div>
+            
+                        <!-- email -->
+                        <div class="col-md-6 pb-4">
+                            <label><strong>Email</strong></label>
+                            <div class="form-control"><%= profile.contact.email %></div>
+                        </div>
+                    </div>
+        
+                    <div class="row text-center">
+                        <!-- linkedin -->
+                        <div class="col-sm-6 col-md-4  pb-4">
+                            <label><strong>LinkedIn Profile</strong></label>
+                            <div>
+                                <a class="visit_url" href="<%= profile.social_media.linkedin %>" target="_blank">View Profile <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+            
+                        <!-- instagram -->
+                        <div class="col-sm-6 col-md-4 pb-4">
+                            <label><strong>Instagram Profile</strong></label>
+                            <div>
+                                <a class="visit_url" href="<%= profile.social_media.instagram %>" target="_blank">View Profile <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- website -->
+                        <div class="col-sm-6 col-md-4 pb-4 mx-auto">
+                            <label><strong>Personal Website</strong></label>
+                            <div>
+                                <a class="visit_url" href="<%= profile.social_media.website %>" target="_blank">View Website <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr><br>
+                    
+                    <div class="section-title">
+                        <h2>Professional info</h2>
+                    </div>
+                    
+        
+                    <%if(userType && userType=="alumni"){%>
+                    <!-- Work Experience -->
+        
+                    <div class="form-group">
+                        <div><strong>Work Experience</strong></div>
+                            <% if(Object.entries(profile.workExperience.employer).length>0) { %>
+                                <% for(let j=0; j< Object.entries(profile.workExperience.employer).length; j++){ %>
+                                <div class="section-bg my-3 px-2 py-2 rounded border border-dark">
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-md-12 col-lg-4">
+                                            <label>Employer</label>
+                                            <div class="form-control custom-show"><%= profile.workExperience.employer[j] %></div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-lg-4">
+                                            <label>Title/Post</label>
+                                            <div class="form-control custom-show"><%= profile.workExperience.jobTitle[j] %></div>
+                                        </div>
+                                
+                                        <div class="form-group col-md-12 col-lg-4">
+                                            <label>Domain</label>
+                                            <div class="form-control custom-show"><%= profile.workExperience.jobDomain[j] %></div>
+                                        </div>
+                                        
+                                        <div class="form-group col-6">
+                                            <label>From</label>
+                                            <div class="form-control"><%= profile.workExperience.jobFrom[j] %></div>
+                                        </div>
+                                        <%if(profile.workExperience.jobTill[j]) {%>
+                                        <div class="form-group col-6">
+                                            <label>Till</label>
+                                            <div class="form-control"><%= profile.workExperience.jobTill[j] %></div>
+                                        </div>
+                                        <%} else {%>
+                                            <div class="form-group col-6">
+                                                <label>Till</label>
+                                                <div class="form-control">Present</div>
+                                            </div>
+                                        <%}%>
+                                    </div>
+                                </div>
+                                <% } %>
+                            <% } %>
+        
+                    
+                    </div>
+                    <%}%>
+        
+                    <!-- skills -->
+                    <div class="form-group">
+                        <label>Skills</label>
+                        <div id="data-skills-public" hidden="hidden"><%= profile.skills.join("|") %></div>
+                        <div id="skills-public" class="form-control custom-show-skills">
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <%- include ('../partials/footer'); -%>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // $(".toast").toast('show');
+    
+            // show dob in format
+            const months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var temp_dob = new Date($("#dob").text());
+            if(!isNaN(temp_dob)) {
+                $("#dob").text(`${("0" + temp_dob.getDate()).slice(-2)}, ${months[temp_dob.getMonth()]} ${temp_dob.getFullYear()}`);
+            }
+    
+            // remove social link
+            $(".visit_url").each(function() {
+                var $this = $( this );
+                if($this.attr("href") == "") {
+                    $this.replaceWith("<div>Not Available</div>")
+                }
+            });
+    
+            // render skills
+            var temp_skills;
+            if($("#data-skills-public").text() != "") {
+                temp_skills = $("#data-skills-public").text().split("|");
+                for(var i = temp_skills.length-1; i>=0; i--) {
+                    $("#skills-public").append("<span class='skill-item'>"+temp_skills[i]+"</span>");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

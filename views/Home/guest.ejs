@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Guest | APSIT Alumini</title>
+  <meta name="description" content="Web portal for alumni and students for latest updates about institute and communication.">
+  <meta name="keywords" content="Apsit, Alumni, Students">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" />
+  <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/venobox.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- Jquery with fallback -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script type="text/javascript">window.jQuery || document.write('<script src="/assets/vendor/jquery.min.js"><\/script>');</script>
+
+</head>
+
+<body>
+
+  <!-- <div id="bodyContent" style="display: none;"> -->
+  <!-- ======= Header ======= -->
+  
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+  
+      <h1 class="align-items-center mr-auto"><a href="#"><img id="main_logo" src="/assets/img/logo.png" alt="APSIT" height="100px"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/contribute">Contribute</a></li>
+          <li><a href="/communicate">Communicate</a></li>
+          <li><a href="/signup"><i class="fas fa-user pr-1"></i>Sign UP</a></li>
+          <li><a href="/login"><i class="fas fa-sign-in-alt pr-1"></i>Login</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+  
+    </div>
+
+  </header><!-- End Header -->
+  
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Welcome to APSIT Alumni Portal</h1>
+          <h2>We believe in the Possibilities.</h2>
+          <div class="d-lg-flex">
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a id="youtuneVideoURL" href="<%= miscData.youtubeURL %>" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="far fa-play-circle"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/assets/img/ui/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+    
+  </section><!-- End Hero -->
+
+  <!-- start flash message -->
+  <% if(successMessage && successMessage.length>0 ){ %>
+    <div class="alert mb-0" role="alert" style="border: 2px solid rgb(188 188 188); border-radius: 0;">
+      <div class="container text-center">
+        <%= successMessage %>
+      </div>
+    </div>
+  <% } else if (errorMessage && errorMessage.length>0 ){ %>
+    <div class="alert alert-danger mb-0" role="alert" style="border: none; color: #000000;">
+      <div class="container text-center">
+        <%= errorMessage %>
+      </div>
+    </div>
+  <% } %>
+  <!-- end flash message -->
+
+  <div id="cookie-popup" class="cookie-popup">
+  
+    <div class="d-flex">
+        <div class="cookie-icon align-self-center">
+            <img class="cookie-img" src="/assets/img/ui/cookie-icon.png" alt="">
+        </div>
+
+        <div class="cookie-message">
+            Hey! Just letting you know that we use cookies to ensure you have the best experience possible.
+        </div>
+
+        <div class="div-cookie-btn">
+            <button class="cookie-btn" id="cookie-btn">
+            <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    
+  </div>
+  
+  <main id="main">
+
+    <!-- ======= Cliens Section ======= -->
+    <section id="cliens" class="cliens section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in" id="loadClients">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-1.png" class="img-fluid" alt=""> 
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-7.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-8.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-9.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-10.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-11.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="/assets/img/clients/client-12.png" class="img-fluid" alt="">
+          </div>
+         
+
+        </div>
+
+      </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+      <section id="about"  class="about">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h2>About Us</h2>
+          </div>
+  
+          <div class="row content">
+  
+            <div class="col-lg-12 pt-4 pt-lg-0">
+              <p>
+                A. P. Shah Institute of Technology (APSIT) has started functioning with commitment of imparting state of art technical education so as to inculcate conceptual know-how, analyzing skills, decision making abilities and leadership qualities in the students. APSIT stands committed to the intellectual and moral growth of every student.
+  
+     APSIT has experienced and proficient team which aspires to unlock the hidden potential in subconscious minds of students and to create competent Engineers with vision & social commitment.
+              </p><br>
+              
+            </div>
+         
+            <div class="col-lg-6">
+              <h2>
+                Vision:
+              </h2>
+              <ul>
+                <br>
+                <li><i class="fas fa-check-double"></i></i>APSIT aspires to be a premier institute producing globally competent engineering professionals to contribute towards socio-economic growth of India.</li>
+                
+              </ul><br>
+            </div>
+            <div class="col-lg-6">
+              <h2>
+                Mission:
+              </h2>
+              <ul>
+                <br>
+                <li><i class="fas fa-check-double"></i></i>To provide conducive and collaborative environment to meet contemporary & future Engineering challenges by project based and value-added education with the support of trained faculty.</li>
+                
+              </ul>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+      
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="about"  class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3><strong>About Training and Placement</strong></h3>
+              <p>
+              </p>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span class="number-bullet">01</span>Vision & Mission<i class="fas fa-angle-down icon-show"></i><i class="fas fa-angle-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
+                    <p>
+                      Training and Placement department is dedicated towards proper placement of students .It advices students on career options and provides the latest information on training & employment opportunities. <br>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;Focus areas are providing guidance, counseling and bringing students and potential employers together to achive the best possible placement depending on the market conditions .The department looks after the interest of the students and the employers by providing them the necessary platform.
+                    </p>
+                  </div>
+                </li>
+
+                
+
+                <li>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span class="number-bullet">02</span>Objectives<i class="fas fa-angle-down icon-show"></i><i class="fas fa-angle-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
+                    <p>
+                      <ul class="points">
+                        <li><span class="fas fa-circle circle-bullet"></span>To organize campus recruitment for final year students in reputed companies.</li>
+
+                        <li><span class="fas fa-circle circle-bullet"></span>To facilitate companies for recruiting candidates as per their requirements.</li>
+
+                        <li><span class="fas fa-circle circle-bullet"></span>Creating awareness amongst the students regarding various career options.</li>
+
+                        <li><span class="fas fa-circle circle-bullet"></span>To enhance students employability by providing training in Aptitude & soft skills.</li>
+
+                        <li><span class="fas fa-circle circle-bullet"></span>Helping students for summer training/internship programme.</li>
+
+                        <li>
+                          <ul><span class="fas fa-circle circle-bullet"></span>Bridging gap between Industry and Academia through:
+                            <li><span class="far fa-circle circle-bullet"></span>Seminars, Guest Lectures, Conferences, Corporate Meets & Industrial Visits etc.</li>
+
+                            <li><span class="far fa-circle circle-bullet"></span>Coordinating with various departments for imparting value added industry skills.</li>
+                          </ul>
+                        </li>
+                      </ul> 
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("/assets/img/ui/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="about"  class="skills">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="/assets/img/ui/skills.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3 class="text-center">We Have More Than <%= miscData.students %>+ Students And <%= miscData.alumni %>+ Alumni Registered<br>Please Join Us Today !</h3>
+            <p class="font-italic">
+             
+            </p>
+
+            <div class="skills-content">
+
+              <div class="progress">
+                <span class="skill">STUDENTS<i id="studentProgressBarText" class="val"><%= miscData.students %></i></span>
+                <div class="progress-bar-wrap">
+                  <div id="studentProgressBarFill" class="progress-bar" role="progressbar" aria-valuenow="<%= miscData.studentsProgress %>" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">Alumni<i id="alumniProgressBarText" class="val"><%= miscData.alumni %></i></span>
+                <div class="progress-bar-wrap">
+                  <div id="alumniProgressBarFill" class="progress-bar" role="progressbar" aria-valuenow="<%= miscData.alumniProgress %>" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+    <!-- ======= NEWS ========= -->
+
+    <section id="news" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+    
+        <div class="section-title">
+          <a href="/news"><h2>Latest News</h2></a>
+        </div>
+        
+        <div class="row">
+          <% let tempDate; 
+          const months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+              for(let i=0; i<countNews; i++){ 
+                tempDate = news[i].date %>
+          
+          <div class="col-xl-4 col-md-6 mx-auto d-flex align-items-stretch my-2 " data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box keep-width d-flex flex-column">
+                <img class="lazyload mx-auto" src="/assets/img/ui/image-placeholder-300x200.gif" data-src="<%= news[i].thumbnail %>" width="300" height="200" onerror="this.onerror=null;this.src='/assets/img/ui/image-placeholder-300x200.png';" />
+          <div class="text-center">
+            <hr>
+            <h4><a href="/news/<%= news[i]._id %>"><%= news[i].title %></a></h4>
+          </div>
+      
+          <div class="text-center">
+            <i class="far fa-calendar-alt"></i> 
+            <%= `${days[tempDate.getDay()]}, ${("0" + tempDate.getDate()).slice(-2)} ${months[tempDate.getMonth()]} ${tempDate.getFullYear()}` %> 
+          </div>
+          <br>
+          
+          <div class="flex-grow-1">
+           
+          </div>
+        <div>
+            <hr><br>
+            <h4 class="text-center"><a  href="/news/<%= news[i]._id %> "><i class="fas fa-info-circle"></i> More Info</a></h4>
+        </div>
+      
+        </div>
+          </div>
+          <% }; %>
+        </div>
+
+    </div>
+    </section>
+    <!-- ====== End News ====== -->
+    <!-- ======= EVENTS ========= -->
+
+    <section id="events" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+    
+        <div class="section-title">
+        <a href="/events"><h2>Latest Events</h2></a>
+        </div>
+        
+        <div class="row">
+          <% for(let i=0; i<countEvents; i++) { 
+            tempDate = events[i].date %>
+          
+          <div class="col-xl-4 col-md-6 mx-auto d-flex align-items-stretch my-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box keep-width d-flex flex-column">
+                
+                <img class="lazyload mx-auto" src="/assets/img/ui/image-placeholder-300x200.gif" data-src="<%= events[i].thumbnail %>" width="300" height="200" onerror="this.onerror=null;this.src='/assets/img/ui/image-placeholder-300x200.png';" />
+          <div class="text-center">
+            <hr>
+            <h4><a href="/events/<%= events[i]._id %>"><%= events[i].title %></a></h4>
+          </div>
+      
+          <div class="text-center">
+            <i class="far fa-calendar-alt"></i> 
+            <%= `${days[tempDate.getDay()]}, ${("0" + tempDate.getDate()).slice(-2)} ${months[tempDate.getMonth()]} ${tempDate.getFullYear()}` %> 
+          </div>
+          <br>
+          
+          <div class="flex-grow-1">
+            
+          </div>
+        <div>
+            <hr><br>
+            <h4 class="text-center"><a  href="/events/<%= events[i]._id %> "><i class="fas fa-info-circle"></i> More Info</a></h4>
+        </div>
+      
+        </div>
+          </div>
+          <% }; %>
+        </div>
+
+    </div>
+    </section>
+    <!-- ====== End EVENTS ====== -->
+
+    <!-- ======= Testimonials ========= -->
+
+    <section id="testimonials" class="services portfolio-details section-bg">
+      <div class="container" data-aos="fade-up">
+      
+          <div class="section-title">
+          <h2>Testimonials</h2>
+          </div>
+          <div class="portfolio-details">
+            <div class="owl-carousel testimonials-slider">
+  
+              <% for(let i = 0; i < countTestimonials; i++) {%>
+                <div class="testi-main">
+                  <div class="testi-container-img d-flex justify-content-center">
+                    <img width="100" height="100" class="lazyload testi-img" src="/assets/img/ui/user-placeholder-100x100.jpg"
+                      data-src="<%= allTestimonials[i].image %>" alt="Student"
+                      onerror="this.onerror=null;this.src='/assets/img/ui/user-placeholder-100x100.jpg';">
+                  </div>
+                  <div class="d-flex mt-3">
+                    <i class="fas fa-quote-left"></i>
+                  </div>
+                  <div class="testi-container-content">
+                    <%= allTestimonials[i].content %>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <i class="fas fa-quote-right"></i>
+                  </div>
+                  <div class="testi-container-info">
+                    <div class="testi-name">
+                      <%= allTestimonials[i].name %>
+                    </div>
+                    <div class="testi-branch">
+                      <%= allTestimonials[i].branch %>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+  
+            </div>
+          </div>
+  
+  
+      </div>
+      </section>
+      <!-- ====== End Testimonials ====== -->
+
+    <!-- ======= Contact Section ======= -->
+    <footer id="footer">
+     <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Join Our Newsletter <i class="fas fa-newspaper"></i></h4>
+            <p>To get the latest updates</p>
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="Enter your email..." required="required">
+              <button type="submit" disabled="disabled">Subscribe</button>
+            </form>
+            <div class="small text-center mt-2"><i class="fas fa-exclamation-circle"></i> Please login first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</footer>
+
+
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Feel free to ask anything !</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Location:</h4>
+                <p>Survey No. 12, 13,
+Opp. Hypercity Mall, Kasarvadavali,
+Ghodbunder Road, Thane West,<br>
+Thane, Maharashtra 400615</p>
+              </div>
+
+              <div class="email">
+                <i class="fas fa-envelope"></i>
+                <h4>Email:</h4>
+                <p>alumni@apsit.edu.in</p>
+              </div>
+
+              <div class="phone">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Call:</h4>
+                <p>+91 9022147199</p>
+              </div>
+
+              <iframe class="lazyload" title="Google Maps" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.331402134628!2d72.96481011473286!3d19.26794928697808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bba2e15f6c7b%3A0x20e1357d640bef7e!2sA.%20P.%20Shah%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1604586840168!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form role="form" class="contact-email-form">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message">Message not sent.</div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit" disabled="disabled">Send Message</button></div>
+              <div class="small text-center mt-2"><i class="fas fa-exclamation-circle"></i> Please login first.</div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-around">
+  
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>A. P. Shah Institute Of Technology</h3>
+            <p>
+              Survey No. 12, 13,<br>
+              Opp. Hypercity Mall, Kasarvadavali,<br>
+              Ghodbunder Road, Thane West,<br>
+              Thane, Maharashtra 400615<br><br>
+              <strong>Phone:</strong> +91 9022147199<br>
+              <strong>Email:</strong><a href="mailto:alumni@apsit.edu.in"> alumni@apsit.edu.in</a><br>
+            </p>
+          </div>
+  
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a href="/">Home</a></li>
+              <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a href="/#about">About us</a></li>
+              <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a >Terms of service</a></li>
+              <li><i class="fas fa-angle-right" style="font-size: small; padding: 3px 6px;"></i> <a >Privacy policy</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Stay connected to get latest updates.</p>
+            <div class="social-links mt-3">
+              <a href="#" ><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" ><i class="fab fa-instagram"></i></a>
+              <a href="#" ><i class="fab fa-facebook-f"></i></a>
+              <a href="#" ><i class="fab fa-twitter"></i></a>
+              <a href="#" ><i class="fab fa-youtube"></i></a>
+              
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright 2020<strong><span> A. P. Shah Institute Of Technology</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+  
+        Designed with ❤ by <a href="">Rajan Khade</a> and <a href="">Chinmay
+          Dharap</a>.
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  <!-- </div>   -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+
+  <script src="/assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/contact-email-form/validate.js"></script>
+  <script src="/assets/vendor/jquery.waypoints.min.js"></script>
+  <script src="/assets/vendor/jquery.easing.min.js"></script>
+  <script src="/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/venobox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" crossorigin="anonymous"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /* cookie consent */
+      if (document.cookie.split(';').some(function(item) {
+        return item.trim().indexOf('cookieConsent=') == 0
+      })) {
+        document.querySelector("#cookie-popup").style.display="none";
+      } else {
+        var popup = document.querySelector("#cookie-btn");
+        popup.addEventListener("click", function() {
+          document.querySelector("#cookie-popup").style.display="none";
+          let expire = new Date(Date.now() + (1000*60*60*24*365))
+          document.cookie = "cookieConsent=true; expires="+expire+" path=/";
+        });
+      }
+
+    });
+  </script>
+</body>
+
+</html>

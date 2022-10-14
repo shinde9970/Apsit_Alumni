@@ -1,0 +1,275 @@
+<%- include ('../partials/adminHeader'); -%>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
+                <p>
+                  News Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/news" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>News</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addNews" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add News</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+    
+    
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-calendar-day"></i>
+                <p>
+                  Events Section
+                  <i class="fas fa-angle-left right"></i>
+    
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/events" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Events</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addEvent" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Events</p>
+                  </a>
+                </li>
+    
+              </ul>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-quote-left"></i>
+                <p>
+                  Testimonials Section
+                  <i class="fas fa-angle-left right"></i>
+            
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/testimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Testimonials</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/addTestimonials" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Testimonials</p>
+                  </a>
+                </li>
+            
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="/newsletter" class="nav-link">
+                <i class="nav-icon fas fa-mail-bulk"></i>
+                <p>
+                  Newsletter Subscribers
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/alumnilist" class="nav-link">
+                <i class="nav-icon fas fa-user-tie"></i>
+                <p>
+                  Alumni
+    
+                </p>
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/admin/studentlist" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Students
+    
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/admin/adminlist" class="nav-link">
+                <i class="nav-icon fas fa-user-cog"></i>
+                <p>
+                  Admins
+    
+                </p>
+              </a>
+            </li>
+   
+    
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"  style="margin-top: 57px;">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Events</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                <li class="breadcrumb-item active">Events</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- start flash message -->
+        <div id="flashAlert" class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-12">
+              <% if(successMessage && successMessage.length>0 ){ %>
+                <div class="alert alert-success text-center" role="alert">
+                  <%= successMessage %>
+                </div>
+                <%}%>
+                <% if(errorMessage && errorMessage.length>0 ){ %>
+                <div class="alert alert-danger text-center" role="alert">
+                  <%= errorMessage %>
+                </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+        <!-- end flash message -->
+
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+
+            <!-- ./col -->
+
+            <!-- ./col -->
+            <div class="col-lg-12 col-12">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3> <%= countEvents %> </h3>
+
+                  <h3>Events Count</h3>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+
+              </div>
+            </div>
+            <!-- ./col -->
+
+
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12"><br>
+
+
+              <div>
+                  <h1 class="m-0 text-dark">Events</h1>
+              </div>
+
+              <div class="card">
+
+                
+                <div class="card-body table-responsive p-0 my-table-height">
+                  <table class="table table-head-fixed sortable-table indexed">
+                    <thead>
+                      <tr class="sorter-header">
+                        <!-- <th>ID</th> -->
+                        <!-- <th>Index</th> -->
+                        <th class=" text-center">Title</th>
+                        <th id="simulate_click" class="is-date keep-whitespace">    Date</th>
+                        <th class="no-sort text-center">View</th>
+                        <th class="no-sort text-center">Edit</th>
+                        <th class="no-sort text-center">Delete</th>
+                      </tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% let tempDate; const months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
+                      for(let i=0; i<countEvents; i++) { 
+                        tempDate = allEvents[i].date %>
+                        <tr>
+                          <!-- <td> <%# allEvents[i]._id %> <%# i+1 %> </td> -->
+                          <td> <%= allEvents[i].title %> </td>
+                          <td> <%= `${("0" + tempDate.getDate()).slice(-2)} ${months[tempDate.getMonth()]} ${tempDate.getFullYear()}` %> </td>
+                          <td>
+                            <a href="/events/<%= allEvents[i]._id %>" class="btn btn-block btn-primary btn-sm btn-fix-size btn-action-spinner">View</a>
+                          </td>
+                          <td>
+                            <a href="/events/<%= allEvents[i]._id %>/edit" class="btn btn-block btn-warning btn-sm btn-fix-size btn-action-spinner">Edit</a>
+                          </td>
+                          <td>
+                            <form action="/events/<%= allEvents[i]._id %>?_method=DELETE" method="POST">
+                              <button type="submit" class="btn btn-block btn-danger btn-sm btn-fix-size btn-action-spinner">Delete</button>
+                            </form>
+
+                          </td>
+                        </tr>
+                      <% } %>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- /.card-body -->
+
+              </div>
+
+            </section>
+            <!-- /.Left col -->
+
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <%- include ('../partials/adminFooter'); -%>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.sortable-table').tableSorter();
+        document.getElementById('simulate_click').click();
+        document.getElementById('simulate_click').click();
+      });
+    </script>
+</body>
+
+</html>
